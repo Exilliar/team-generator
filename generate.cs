@@ -8,15 +8,17 @@ namespace team_generator
         {
             int numTeams = getInt("Number of teams: ");
 
-            int numMemebers = getInt("Number of members in each team: ");
+            int numMembers = getInt("Number of members in each team: ");
 
-            Members mems = new Members(getString("Names of the members: ").Split(' '));
+            int maxMembers = numMembers*numTeams;
 
-            Teams teams = new Teams(numTeams,numMemebers);
+            Members mems = new Members(getString("First names of the members: ").Split(' '),maxMembers);
+
+            Teams teams = new Teams(numTeams,numMembers);
 
             for (int i = 0; i < numTeams; i++)
             {
-                for (int a = 0; a < numMemebers; a++)
+                for (int a = 0; a < numMembers; a++)
                 {
                     Random rand = new Random();
 
