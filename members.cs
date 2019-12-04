@@ -4,7 +4,7 @@ namespace team_generator
 {
     public class Members
     {
-        private string[] arr;
+        private string[] names;
 
         public Members(string[] a, int maxPlaces)
         {
@@ -14,68 +14,69 @@ namespace team_generator
                 {
                     Console.WriteLine($"More names than team places available, only taking first {maxPlaces} names");
 
-                    arr = GetMax(a, maxPlaces);
+                    names = GetMax(a, maxPlaces);
                 }
                 else
                 {
                     Console.WriteLine("Less names than team places available, remaining names will be blank");
 
-                    arr = FillArr(a,maxPlaces);
+                    names = FillNames(a,maxPlaces);
                 }
             }
-            else
-            {
-                arr = a;
-            }
+            else names = a;
         }
 
         public void RemoveMember(int namePos)
         {
-            string[] newArr = new string[arr.Length-1];
+            string[] newnames = new string[names.Length-1];
             int currentPos = 0;
 
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < names.Length; i++)
             {
                 if (i != namePos)
                 {
-                    newArr[currentPos] = arr[i];
+                    newnames[currentPos] = names[i];
                     currentPos ++;
                 }
             }
 
-            arr = newArr;
+            names = newnames;
         }
 
         public int Length()
         {
-            return arr.Length;
+            return names.Length;
         }
 
         public string GetName(int pos)
         {
-            return arr[pos];
+            return names[pos];
         }
 
-        private static string[] GetMax(string[] a, int max)
+        private string[] FillArr(string[] a0, string[] a1, int limit)
+        {
+            for (int i = 0; i < limit; i++)
+            {
+                a0[i] = a1[i];
+            }
+
+            return a0;
+        }
+
+        private string[] GetMax(string[] a, int max)
         {
             string[] result = new string[max];
 
-            for (int i = 0; i < max; i++)
-            {
-                result[i] = a[i];
-            }
+            result = FillArr(result,a,max);
 
             return result;
         }
 
-        private static string[] FillArr(string[] a, int max)
+        private string[] FillNames(string[] a, int max)
         {
             string[] result = new string[max];
 
-            for (int i = 0; i < a.Length; i++)
-            {
-                result[i] = a[i];
-            }
+            result = FillArr(result,a,a.Length);
 
             for (int b = max-a.Length; b < max; b++)
             {

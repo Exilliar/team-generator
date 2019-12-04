@@ -12,7 +12,9 @@ namespace team_generator
 
             int maxMembers = numMembers*numTeams;
 
-            Members mems = new Members(getString("First names of the members: ").Split(' '),maxMembers);
+            string[] allNames = getString("First names of the members: ").Split(' ');
+
+            Members mems = new Members(allNames,maxMembers);
 
             Teams teams = new Teams(numTeams,numMembers);
 
@@ -35,9 +37,7 @@ namespace team_generator
 
         static int getInt(string msg)
         {
-            Console.Write(msg);
-
-            return Int32.Parse(Console.ReadLine());
+            return Int32.Parse(getString(msg));
         }
 
         static string getString(string msg)
