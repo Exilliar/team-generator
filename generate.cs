@@ -1,4 +1,5 @@
 using System;
+using ExBasicFunctions;
 
 namespace team_generator
 {
@@ -6,13 +7,13 @@ namespace team_generator
     {
         static void Main(string[] args)
         {
-            int numTeams = getInt("Number of teams: ");
+            int numTeams = Basic.getInt("Number of teams: ");
 
-            int numMembers = getInt("Number of members in each team: ");
+            int numMembers = Basic.getInt("Number of members in each team: ");
 
             int maxMembers = numMembers*numTeams;
 
-            string[] allNames = getString("First names of the members: ").Split(' ');
+            string[] allNames = Basic.getString("First names of the members: ").Split(' ');
 
             Members mems = new Members(allNames,maxMembers);
 
@@ -33,18 +34,6 @@ namespace team_generator
             }
 
             teams.Print();
-        }
-
-        static int getInt(string msg)
-        {
-            return Int32.Parse(getString(msg));
-        }
-
-        static string getString(string msg)
-        {
-            Console.Write(msg);
-
-            return Console.ReadLine();
         }
     }
 }

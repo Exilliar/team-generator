@@ -1,4 +1,5 @@
 using System;
+using ExBasicFunctions;
 
 namespace team_generator
 {
@@ -53,21 +54,11 @@ namespace team_generator
             return names[pos];
         }
 
-        private string[] FillArr(string[] a0, string[] a1, int limit)
-        {
-            for (int i = 0; i < limit; i++)
-            {
-                a0[i] = a1[i];
-            }
-
-            return a0;
-        }
-
         private string[] GetMax(string[] a, int max)
         {
             string[] result = new string[max];
 
-            result = FillArr(result,a,max);
+            result = Basic.FillArr(result,a,max);
 
             return result;
         }
@@ -76,7 +67,7 @@ namespace team_generator
         {
             string[] result = new string[max];
 
-            result = FillArr(result,a,a.Length);
+            result = Basic.FillArr(result,a,a.Length);
 
             for (int b = max-a.Length; b < max; b++)
             {
