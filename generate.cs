@@ -1,5 +1,5 @@
 using System;
-using ExBasicFunctions;
+using ExBCSL;
 
 namespace team_generator
 {
@@ -7,13 +7,13 @@ namespace team_generator
     {
         static void Main(string[] args)
         {
-            int numTeams = Basic.getInt("Number of teams: ");
+            int numTeams = Read.getInt("Number of teams: ");
 
-            int numMembers = Basic.getInt("Number of members in each team: ");
+            int numMembers = Read.getInt("Number of members in each team: ");
 
             int maxMembers = numMembers*numTeams;
 
-            string[] allNames = Basic.getString("First names of the members: ").Split(' ');
+            string[] allNames = Read.getString("First names of the members: ").Split(' ');
 
             Members mems = new Members(allNames,maxMembers);
 

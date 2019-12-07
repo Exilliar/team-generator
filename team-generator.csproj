@@ -6,4 +6,8 @@
     <RootNamespace>team_generator</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ExBCSL" Version="0.0.1" />
+  </ItemGroup>
+
 </Project>
