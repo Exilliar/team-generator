@@ -1,5 +1,5 @@
 using System;
-using ExBasicFunctions;
+using ExBCSL;
 
 namespace team_generator
 {
@@ -58,7 +58,7 @@ namespace team_generator
         {
             string[] result = new string[max];
 
-            result = Basic.FillArr(result,a,max);
+            result = BArrays.FillArr(result,a,max);
 
             return result;
         }
@@ -67,7 +67,7 @@ namespace team_generator
         {
             string[] result = new string[max];
 
-            result = Basic.FillArr(result,a,a.Length);
+            result = BArrays.FillArr(result,a,a.Length);
 
             for (int b = max-a.Length; b < max; b++)
             {

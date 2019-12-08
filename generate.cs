@@ -7,13 +7,13 @@ namespace team_generator
     {
         static void Main(string[] args)
         {
-            int numTeams = Read.getInt("Number of teams: ");
+            int numTeams = BRead.getInt("Number of teams: ");
 
-            int numMembers = Read.getInt("Number of members in each team: ");
+            int numMembers = BRead.getInt("Number of members in each team: ");
 
             int maxMembers = numMembers*numTeams;
 
-            string[] allNames = Read.getString("First names of the members: ").Split(' ');
+            string[] allNames = BRead.getString("First names of the members: ").Split(' ');
 
             Members mems = new Members(allNames,maxMembers);
 
