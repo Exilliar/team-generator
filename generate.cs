@@ -12,7 +12,9 @@ namespace team_generator
 
             int maxMembers = numMembers*numTeams;
 
-            Members mems = new Members(getString("First names of the members: ").Split(' '),maxMembers);
+            string[] names = getString("First names of the members: ").Split(' ');
+
+            Members mems = new Members(names,maxMembers);
 
             Teams teams = new Teams(numTeams,numMembers);
 
